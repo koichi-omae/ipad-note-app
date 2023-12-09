@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 
 export interface PreviewBoxProps {
-  selectIndex: number | null;
+  selectIndex: number;
   previewNum: number;
   image: ImageDataProps;
   onClick: () => void;
@@ -19,7 +19,7 @@ export default function PreviewBoxPresentation({ ...props }: PreviewBoxProps) {
   return (
     <div
       className={`group relative h-32 w-32 rounded-md border-2 bg-white p-1 shadow-lg hover:cursor-pointer 
-     ${props.selectIndex === props.previewNum - 1 ? 'border-blue-600' : 'border-gray-100'} 
+     ${props.selectIndex === props.previewNum ? 'border-blue-600' : 'border-gray-100'} 
        `}
       onClick={props.onClick}
     >
@@ -33,8 +33,11 @@ export default function PreviewBoxPresentation({ ...props }: PreviewBoxProps) {
       />
 
       <span
-        className='absolute -right-3.5 -top-3.5 hidden rounded-full border-2 bg-gray-500 px-1.5  font-bold text-white  hover:opacity-75 group-hover:block'
-        onClick={props.onDelte}
+        className='absolute -right-3.5 -top-3.5 z-10 hidden rounded-full border-2 bg-gray-500 px-1.5  font-bold text-white  hover:bg-gray-800  group-hover:block'
+        onClick={(e) => {
+          e.stopPropagation();
+          props.onDelte();
+        }}
       >
         ×
       </span>

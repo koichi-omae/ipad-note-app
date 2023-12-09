@@ -6,7 +6,7 @@ export const usePreviewBox = () => {
   const isPreviewBox = useRecoilValue(previewBoxState);
   const setIsPreviewBox = useRecoilState(previewBoxState)[1];
 
-  const setSelectIndex = (index: number | null) => {
+  const setSelectIndex = (index: number) => {
     setIsPreviewBox((prev) => ({
       ...prev,
       selectIndex: index,

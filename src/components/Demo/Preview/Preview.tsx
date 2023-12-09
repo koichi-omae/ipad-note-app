@@ -5,11 +5,11 @@ import PreviewBoxPresentation, { ImageDataProps } from './PreviewBox';
 import { usePreviewBox } from '@/hooks/Demo/usePreviewBox';
 
 interface PreviewProps {
-  selectIndex: number | null;
+  selectIndex: number;
   previewBoxes: ImageDataProps[];
   addPreviewBox: (previewBox: ImageDataProps) => void;
   setSelectIndex: (index: number) => void;
-  deletePreviewBoxList: (index: number) => void;
+  deletePreviewBox: (index: number) => void;
 }
 
 function PreviewPresentation({ ...props }: PreviewProps) {
@@ -22,8 +22,8 @@ function PreviewPresentation({ ...props }: PreviewProps) {
             selectIndex={props.selectIndex}
             previewNum={index + 1}
             image={previewBox}
-            onClick={() => props.setSelectIndex(index)}
-            onDelte={() => props.deletePreviewBoxList(index)}
+            onClick={() => props.setSelectIndex(index + 1)}
+            onDelte={() => props.deletePreviewBox(index)}
           />
         ))}
         <AddPreviewBoxPresentation
@@ -48,12 +48,26 @@ export default function PreviewContainer() {
     addPreviewBoxList(previewBox);
   };
 
+  const deletePreviewBox = (index: number) => {
+    if (isPreviewBox.previewBoxList.length <= 1) {
+      return;
+    } else {
+      if (index > 0) {
+        setSelectIndex(index);
+        deletePreviewBoxList(index);
+      } else {
+        setSelectIndex(index + 1);
+        deletePreviewBoxList(index);
+      }
+    }
+  };
+
   const data: PreviewProps = {
     selectIndex: isPreviewBox.selectIndex,
     previewBoxes: isPreviewBox.previewBoxList,
     addPreviewBox: handleAddPreviewBox,
     setSelectIndex: (index: number) => setSelectIndex(index),
-    deletePreviewBoxList: (index: number) => deletePreviewBoxList(index),
+    deletePreviewBox: (index: number) => deletePreviewBox(index),
   };
 
   return <PreviewPresentation {...data} />;
