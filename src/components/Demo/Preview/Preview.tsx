@@ -1,67 +1,59 @@
 'use client';
 
 import AddPreviewBoxPresentation, { AddPreviewBoxProps } from './AddPreviewBox';
-import PreviewBoxPresentation from './PreviewBox';
+import PreviewBoxPresentation, { ImageDataProps } from './PreviewBox';
+import { usePreviewBox } from '@/hooks/Demo/usePreviewBox';
 
 interface PreviewProps {
-  previewBoxes: AddPreviewBoxProps[];
-  addPreviewBox: AddPreviewBoxProps;
+  selectIndex: number | null;
+  previewBoxes: ImageDataProps[];
+  addPreviewBox: (previewBox: ImageDataProps) => void;
+  setSelectIndex: (index: number) => void;
+  deletePreviewBoxList: (index: number) => void;
 }
 
 function PreviewPresentation({ ...props }: PreviewProps) {
   return (
-    <div className='absolute bottom-0 flex h-[15vh] w-full items-center overflow-x-scroll bg-gray-100  px-8'>
-      <div className='flex items-center gap-8'>
+    <div className='flex h-[15vh] w-full items-center overflow-x-scroll bg-gray-100  px-8'>
+      <div className='flex items-center gap-10'>
         {props.previewBoxes.map((previewBox, index) => (
-          <PreviewBoxPresentation key={index} previewNum={index + 1} onClick={previewBox.onClick} />
+          <PreviewBoxPresentation
+            key={index}
+            selectIndex={props.selectIndex}
+            previewNum={index + 1}
+            image={previewBox}
+            onClick={() => props.setSelectIndex(index)}
+            onDelte={() => props.deletePreviewBoxList(index)}
+          />
         ))}
-        <AddPreviewBoxPresentation {...props.addPreviewBox} />
+        <AddPreviewBoxPresentation
+          onClick={() =>
+            props.addPreviewBox({
+              src: 'https://camo.qiitausercontent.com/bee363b02738b89dc44d2b6bd05641d775a6e001/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3136333539312f37663834373363652d306164362d613932352d663261632d6235396564393963353361612e706e67',
+              alt: 'preview',
+              width: 112,
+              height: 112,
+            })
+          }
+        />
       </div>
     </div>
   );
 }
 
 export default function PreviewContainer() {
-  const handleTest = () => {
-    console.log('test');
+  const { isPreviewBox, setSelectIndex, addPreviewBoxList, deletePreviewBoxList } = usePreviewBox();
+
+  const handleAddPreviewBox = (previewBox: ImageDataProps) => {
+    addPreviewBoxList(previewBox);
   };
 
   const data: PreviewProps = {
-    previewBoxes: [
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-      {
-        onClick: () => handleTest(),
-      },
-    ],
-    addPreviewBox: {
-      onClick: () => handleTest(),
-    },
+    selectIndex: isPreviewBox.selectIndex,
+    previewBoxes: isPreviewBox.previewBoxList,
+    addPreviewBox: handleAddPreviewBox,
+    setSelectIndex: (index: number) => setSelectIndex(index),
+    deletePreviewBoxList: (index: number) => deletePreviewBoxList(index),
   };
 
   return <PreviewPresentation {...data} />;
