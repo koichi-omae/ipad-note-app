@@ -16,6 +16,7 @@ export const usePreviewBox = () => {
   const addPreviewBoxList = (previewBox: ImageDataProps) => {
     setIsPreviewBox((prev) => ({
       ...prev,
+      selectIndex: prev.previewBoxList.length + 1,
       previewBoxList: [...prev.previewBoxList, previewBox],
     }));
   };
