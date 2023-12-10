@@ -52,7 +52,7 @@ export default function PreviewContainer() {
     if (isPreviewBox.previewBoxList.length <= 1) {
       return;
     } else {
-      if (index > 0) {
+      if (index + 1 === isPreviewBox.previewBoxList.length) {
         setSelectIndex(index);
         deletePreviewBoxList(index);
       } else {
