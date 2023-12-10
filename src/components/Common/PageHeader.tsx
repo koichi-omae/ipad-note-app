@@ -34,7 +34,7 @@ function PageHeaderPresentation({ ...props }: PageHeaderProps) {
         {props.isFileNameInput.isEdit ? (
           <input
             id='fileNameInput'
-            className='rounded-md border-2 border-gray-500 text-lg font-semibold '
+            className='rounded-md border-2 border-gray-500 px-2 py-0.5 text-lg font-semibold'
             value={props.isFileNameInput.fileName}
             onChange={(e) => props.setFileName(e.target.value)}
             onKeyDown={(e) => props.inputKeyDown(e)}

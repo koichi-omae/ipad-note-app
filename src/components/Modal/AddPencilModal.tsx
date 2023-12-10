@@ -36,7 +36,7 @@ function AddPencilModalPresentation({ ...props }: AddPencilModalProps) {
             e.stopPropagation();
           }}
         >
-          <div className='w-[800px]'>
+          <div className='w-[678px]'>
             <Tab.Group>
               <Tab.List className='flex justify-center gap-2 space-x-1 rounded-xl bg-blue-900/20 p-2'>
                 {props.tabData.tabList.map((tab, index) => (

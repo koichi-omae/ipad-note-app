@@ -3,6 +3,7 @@
 import AddPreviewBoxPresentation, { AddPreviewBoxProps } from './AddPreviewBox';
 import PreviewBoxPresentation, { ImageDataProps } from './PreviewBox';
 import { usePreviewBox } from '@/hooks/Demo/usePreviewBox';
+import NoteBgImage from '~/img/note-bg.png';
 
 interface PreviewProps {
   selectIndex: number;
@@ -29,10 +30,10 @@ function PreviewPresentation({ ...props }: PreviewProps) {
         <AddPreviewBoxPresentation
           onClick={() =>
             props.addPreviewBox({
-              src: 'https://camo.qiitausercontent.com/bee363b02738b89dc44d2b6bd05641d775a6e001/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3136333539312f37663834373363652d306164362d613932352d663261632d6235396564393963353361612e706e67',
+              src: NoteBgImage,
               alt: 'preview',
-              width: 112,
-              height: 112,
+              width: 100,
+              height: 100,
             })
           }
         />
