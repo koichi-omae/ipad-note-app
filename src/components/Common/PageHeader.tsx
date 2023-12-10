@@ -1,9 +1,11 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useFileNameInput } from '@/hooks/Common/useFileNameInput';
 import { FileNameInputProps } from '@/models/Common/FileNameInput';
+import AddPenImage from '~/img/add-pen-icon.png';
 
 interface PageHeaderProps {
   isFileNameInput: FileNameInputProps;
@@ -51,7 +53,13 @@ function PageHeaderPresentation({ ...props }: PageHeaderProps) {
           </button>
         </li>
         <li>
-          <button>🖊️</button>
+          <Image
+            src={AddPenImage}
+            alt='add-pen-icon'
+            width={20}
+            height={20}
+            className='hover:cursor-pointer hover:opacity-75'
+          />
         </li>
       </ul>
     </header>
