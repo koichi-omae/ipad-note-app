@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useFileNameInput } from '@/hooks/Common/useFileNameInput';
+import { useAddPencilModal } from '@/hooks/Modal/useAddPencilModal';
 import { FileNameInputProps } from '@/models/Common/FileNameInput';
 import AddPenImage from '~/img/add-pen-icon.png';
 
@@ -13,6 +14,7 @@ interface PageHeaderProps {
   setFileName: (fileName: string) => void;
   setIsEdit: () => void;
   inputKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  setRestDataAndShow: () => void;
 }
 
 function PageHeaderPresentation({ ...props }: PageHeaderProps) {
@@ -59,6 +61,7 @@ function PageHeaderPresentation({ ...props }: PageHeaderProps) {
             width={20}
             height={20}
             className='hover:cursor-pointer hover:opacity-75'
+            onClick={props.setRestDataAndShow}
           />
         </li>
       </ul>
@@ -68,7 +71,7 @@ function PageHeaderPresentation({ ...props }: PageHeaderProps) {
 
 export default function PageHeaderContainer() {
   const { isFileNameInput, setFileName, setIsEdit } = useFileNameInput();
-
+  const { setRestDataAndShow } = useAddPencilModal();
   const handleHeaderClick = (e: React.MouseEvent<HTMLHeadElement, MouseEvent>) => {
     e.stopPropagation();
     if (!isFileNameInput.isEdit) {
@@ -98,6 +101,7 @@ export default function PageHeaderContainer() {
     setFileName,
     setIsEdit,
     inputKeyDown: handleInputKeyDown,
+    setRestDataAndShow: setRestDataAndShow,
   };
 
   return <PageHeaderPresentation {...data} />;

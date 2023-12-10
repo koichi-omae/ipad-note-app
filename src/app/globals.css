@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pencil-trapezoid {
+  width: 2rem;
+  height: 1.5rem;
+  background-color: #d1d5db;
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+
+.pencil-trapezoid-top {
+  width: 1.26rem;
+  height: 1.5rem;
+  background-color: #d1d5db;
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+}
+
+.marker-trapezoid {
+  width: 2rem;
+  height: 1.5rem;
+  background-color: #9ca4b0;
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+
+.marker-trapezoid-top {
+  width: 1rem;
+  height: 2rem;
+  background-color: black;
+  clip-path: polygon(10% 5px, 90% 0, 100% 100%, 0 100%);
+}
