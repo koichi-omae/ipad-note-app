@@ -70,10 +70,10 @@ function AddPencilModalPresentation({ ...props }: AddPencilModalProps) {
                       />
                       <div
                         style={{ backgroundColor: props.pencilData.color }}
-                        className='absolute left-32 h-8 w-60 rounded'
+                        className='absolute left-24 h-8 w-60 rounded'
                       />
-                      <div className='absolute -top-4 right-24 h-4 w-2 bg-gray-300' />
-                      <div className='absolute -top-4 right-24 h-2 w-32 bg-gray-300' />
+                      <div className='absolute -top-4 right-16 h-4 w-2 bg-gray-300' />
+                      <div className='absolute -top-4 right-16 h-2 w-32 bg-gray-300' />
                     </div>
                     <div className='mt-4 text-right'>
                       <button className='mr-4 rounded-md bg-blue-400 px-2 py-1 font-semibold tracking-widest text-white hover:opacity-75'>
@@ -109,10 +109,10 @@ function AddPencilModalPresentation({ ...props }: AddPencilModalProps) {
                       <div className='h-6 w-4 rounded-r bg-gray-400' />
                       <div
                         style={{ backgroundColor: props.markerData.color }}
-                        className='absolute left-32 h-8 w-40 rounded'
+                        className='absolute left-24 h-8 w-40 rounded'
                       />
-                      <div className='absolute -top-4 right-24 h-4 w-2 bg-gray-400' />
-                      <div className='absolute -top-4 right-24 h-2 w-32 bg-gray-400' />
+                      <div className='absolute -top-4 right-16 h-4 w-2 bg-gray-400' />
+                      <div className='absolute -top-4 right-16 h-2 w-32 bg-gray-400' />
                     </div>
                     <div className='mt-4 text-right'>
                       <button className='mr-4 rounded-md bg-blue-400 px-2 py-1 font-semibold tracking-widest text-white hover:opacity-75'>
