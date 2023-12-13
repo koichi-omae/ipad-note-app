@@ -9,7 +9,7 @@ export default function Demo() {
   return (
     <RecoilRoot>
       <PageHeaderContainer />
-      <canvas id='canvas' className='h-screen w-full'></canvas>
+      <canvas onScroll={(e) => e.preventDefault()} id='canvas' className='h-screen w-full'></canvas>
       <PreviewContainer />
       <AddPencilModalContainer />
     </RecoilRoot>
