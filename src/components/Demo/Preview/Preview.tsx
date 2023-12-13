@@ -15,7 +15,7 @@ interface PreviewProps {
 
 function PreviewPresentation({ ...props }: PreviewProps) {
   return (
-    <div className='flex h-[15vh] w-full items-center overflow-x-scroll bg-gray-100  px-8'>
+    <div className='flex h-[10vh] w-full items-center overflow-x-scroll bg-gray-100  px-8'>
       <div className='flex items-center gap-10'>
         {props.previewBoxes.map((previewBox, index) => (
           <PreviewBoxPresentation

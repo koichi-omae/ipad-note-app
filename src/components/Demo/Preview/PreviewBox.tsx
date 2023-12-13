@@ -34,10 +34,6 @@ export default function PreviewBoxPresentation({ ...props }: PreviewBoxProps) {
 
       <span
         className='absolute -right-3.5 -top-3.5 z-10 hidden rounded-full border-2 bg-gray-500 px-1.5  font-bold text-white  hover:bg-gray-800  group-hover:block'
-        onClick={(e) => {
-          e.stopPropagation();
-          props.onDelte();
-        }}
         onTouchStart={(e) => {
           e.stopPropagation();
           props.onDelte();
