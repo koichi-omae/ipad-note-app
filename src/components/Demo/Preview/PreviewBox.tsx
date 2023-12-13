@@ -22,6 +22,7 @@ export default function PreviewBoxPresentation({ ...props }: PreviewBoxProps) {
      ${props.selectIndex === props.previewNum ? 'border-blue-600' : 'border-gray-100'} 
        `}
       onClick={props.onClick}
+      onTouchStart={props.onClick}
     >
       <Image
         src={props.image.src}
