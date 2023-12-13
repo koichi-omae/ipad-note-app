@@ -37,6 +37,10 @@ export default function PreviewBoxPresentation({ ...props }: PreviewBoxProps) {
           e.stopPropagation();
           props.onDelte();
         }}
+        onTouchStart={(e) => {
+          e.stopPropagation();
+          props.onDelte();
+        }}
       >
         ×
       </span>
