@@ -14,7 +14,7 @@ export default function Demo() {
   return (
     <RecoilRoot>
       <PageHeaderContainer />
-      <canvas id='canvas' className='h-screen w-full'></canvas>
+      <canvas id='canvas' className='h-[80vh] w-full'></canvas>
       <PreviewContainer />
       <AddPencilModalContainer />
     </RecoilRoot>
