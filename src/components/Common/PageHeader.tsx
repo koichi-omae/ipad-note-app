@@ -24,7 +24,7 @@ function PageHeaderPresentation({ ...props }: PageHeaderProps) {
 
   return (
     <header
-      className='flex h-[5vh] w-full items-center justify-between bg-gray-100 px-8'
+      className='fixed flex h-[5vh] w-full items-center justify-between bg-gray-100 px-8'
       onClick={(e) => props.headerClick(e)}
     >
       <ul className='flex items-center gap-4'>
